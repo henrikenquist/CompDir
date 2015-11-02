@@ -1,0 +1,760 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>CompDir</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-09-30"><meta name="DC.source" content="CompDir.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Main</a></li><li><a href="#4">--- Executes just before CompDir is made visible.</a></li><li><a href="#7">--- Outputs from this function are returned to the command line.</a></li><li><a href="#10">Selects local directory</a></li><li><a href="#13">Save directory content on .csv file</a></li><li><a href="#16">Opens source file</a></li><li><a href="#19">Checks if same content on local directory and on file</a></li><li><a href="#22">Saves the difference</a></li><li><a href="#25">Updates the time parameter (day, hour, minute, second)</a></li></ul></div><pre class="codeinput"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">%</span>
+<span class="comment">% All rights reserved</span>
+<span class="comment">%</span>
+<span class="comment">% Arbets- och milj&ouml;medicin, Lund, Sweden</span>
+<span class="comment">%</span>
+<span class="comment">% Contact:</span>
+<span class="comment">% Henrik Enquist</span>
+<span class="comment">% henrik.enquist@skane.se</span>
+<span class="comment">% +46 (0)46 176936</span>
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+</pre><h2>Main<a name="2"></a></h2><pre class="codeinput"><span class="keyword">function</span> varargout = CompDir(varargin)
+</pre><pre class="codeinput"><span class="comment">% COMPDIR MATLAB code for CompDir.fig</span>
+<span class="comment">%      COMPDIR, by itself, creates a new COMPDIR or raises the existing</span>
+<span class="comment">%      singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      H = COMPDIR returns the handle to a new COMPDIR or the handle to</span>
+<span class="comment">%      the existing singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      COMPDIR('CALLBACK',hObject,eventData,handles,...) calls the local</span>
+<span class="comment">%      function named CALLBACK in COMPDIR.M with the given input arguments.</span>
+<span class="comment">%</span>
+<span class="comment">%      COMPDIR('Property','Value',...) creates a new COMPDIR or raises the</span>
+<span class="comment">%      existing singleton*.  Starting from the left, property value pairs are</span>
+<span class="comment">%      applied to the GUI before CompDir_OpeningFcn gets called.  An</span>
+<span class="comment">%      unrecognized property name or invalid value makes property application</span>
+<span class="comment">%      stop.  All inputs are passed to CompDir_OpeningFcn via varargin.</span>
+<span class="comment">%</span>
+<span class="comment">%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one</span>
+<span class="comment">%      instance to run (singleton)".</span>
+<span class="comment">%</span>
+<span class="comment">% See also: GUIDE, GUIDATA, GUIHANDLES</span>
+
+<span class="comment">% Edit the above text to modify the response to help CompDir</span>
+
+<span class="comment">% Last Modified by GUIDE v2.5 04-Sep-2015 10:35:20</span>
+
+<span class="comment">% Begin initialization code - DO NOT EDIT</span>
+gui_Singleton = 1;
+gui_State = struct(<span class="string">'gui_Name'</span>,       mfilename, <span class="keyword">...</span>
+                   <span class="string">'gui_Singleton'</span>,  gui_Singleton, <span class="keyword">...</span>
+                   <span class="string">'gui_OpeningFcn'</span>, @CompDir_OpeningFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_OutputFcn'</span>,  @CompDir_OutputFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_LayoutFcn'</span>,  [] , <span class="keyword">...</span>
+                   <span class="string">'gui_Callback'</span>,   []);
+<span class="keyword">if</span> nargin &amp;&amp; ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">else</span>
+    gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">end</span>
+<span class="comment">% End initialization code - DO NOT EDIT</span>
+</pre><h2>--- Executes just before CompDir is made visible.<a name="4"></a></h2><pre class="codeinput"><span class="keyword">function</span> CompDir_OpeningFcn(hObject, eventdata, handles, varargin)
+</pre><pre class="codeinput"><span class="comment">% This function has no output args, see OutputFcn.</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="comment">% varargin   command line arguments to CompDir (see VARARGIN)</span>
+
+<span class="comment">% Choose default command line output for CompDir</span>
+handles.output = hObject;
+
+<span class="comment">% Directory information on local disk</span>
+handles.rootFolder = <span class="string">''</span>;
+handles.dirContent = [];
+
+<span class="comment">% Directory information on file</span>
+handles.sourceFile = <span class="string">''</span>;
+handles.fileContent = [];
+handles.fileContent.isdir = <span class="string">''</span>;
+
+<span class="comment">% Information on differences</span>
+handles.diffFileN = [];      <span class="comment">% Unique files/folders</span>
+handles.diffDirN = [];
+handles.diffTotN = [];
+handles.diffFileC = [];      <span class="comment">% Common files/folders, mismatching date/size</span>
+handles.diffDirC = [];
+handles.diffTotC = [];
+
+<span class="comment">% Date/time comparison level radio button group</span>
+handles.timeParam = <span class="string">'Minute'</span>;
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+
+<span class="comment">% UIWAIT makes CompDir wait for user response (see UIRESUME)</span>
+<span class="comment">% uiwait(handles.figure1);</span>
+</pre><img vspace="5" hspace="5" src="CompDir_01.png" style="width:555px;height:780px;" alt=""> <h2>--- Outputs from this function are returned to the command line.<a name="7"></a></h2><pre class="codeinput"><span class="keyword">function</span> varargout = CompDir_OutputFcn(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% varargout  cell array for returning output args (see VARARGOUT);</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Get default command line output from handles structure</span>
+varargout{1} = handles.output;
+</pre><h2>Selects local directory<a name="10"></a></h2><p>--- Executes on button press in selectFolderPB.</p><pre class="codeinput"><span class="keyword">function</span> selectFolderPB_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to selectFolderPB (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Select root folder</span>
+handles.rootFolder = uigetdir;
+<span class="comment">% Update file name text field</span>
+set(findobj(<span class="string">'Tag'</span>, <span class="string">'folderName'</span>),<span class="string">'String'</span>, handles.rootFolder);
+
+<span class="comment">% Message box</span>
+mb = msgbox(<span class="string">'Opening directory. Please wait...'</span>);
+
+<span class="comment">% Retrieve the content of folder and subfolders as struct</span>
+<span class="comment">% Exclude absolute path text from results</span>
+handles.dirContent = rdir([handles.rootFolder,<span class="string">'\**\*'</span>], <span class="string">''</span>, true);
+
+<span class="comment">% Close message box</span>
+close(mb);
+
+<span class="comment">% Count and display total number of folders and files</span>
+isDir = [handles.dirContent.isdir];
+dirNames = {handles.dirContent(isDir).name};
+fileNames = {handles.dirContent(~isDir).name};
+
+dirCount = size(dirNames, 2);
+fileCount = size(fileNames, 2);
+
+set(findobj(<span class="string">'Tag'</span>, <span class="string">'dirCountDir'</span>),<span class="string">'String'</span>, dirCount);
+set(findobj(<span class="string">'Tag'</span>, <span class="string">'fileCountDir'</span>),<span class="string">'String'</span>, fileCount);
+
+<span class="comment">% Convert struct to table</span>
+handles.dirContent = struct2table(handles.dirContent);
+
+<span class="comment">% Enable 'saveContentPB'</span>
+set(handles.saveContentPB, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+</pre><h2>Save directory content on .csv file<a name="13"></a></h2><p>--- Executes on button press in saveContentPB.</p><pre class="codeinput"><span class="keyword">function</span> saveContentPB_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to saveContentPB (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+[file, path] = uiputfile(<span class="string">'directoryContent.csv'</span>, <span class="string">'Save directory structure'</span>);
+targetFile = strcat(path, file);
+set(findobj(<span class="string">'Tag'</span>, <span class="string">'targetFile'</span>),<span class="string">'String'</span>, targetFile);
+<span class="comment">% try</span>
+<span class="comment">%     temp_table = struct2table(handles.dirContent);</span>
+<span class="comment">% catch ME</span>
+<span class="comment">%     msgbox(getReport(ME, 'extended', 'hyperlinks', 'off'));</span>
+<span class="comment">%     % closereq;</span>
+<span class="comment">% end</span>
+<span class="keyword">try</span>
+    writetable(handles.dirContent, targetFile);
+    msgbox(<span class="string">'File with directory content has been saved'</span>);
+<span class="keyword">catch</span> ME
+    msgbox(getReport(ME, <span class="string">'extended'</span>, <span class="string">'hyperlinks'</span>, <span class="string">'off'</span>));
+    <span class="comment">% closereq;</span>
+<span class="keyword">end</span>
+</pre><h2>Opens source file<a name="16"></a></h2><p>--- Executes on button press in sourceFilePB.</p><pre class="codeinput"><span class="keyword">function</span> sourceFilePB_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to sourceFilePB (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Get file from dialog box</span>
+[file, path] = uigetfile(<span class="string">'*.csv'</span>,<span class="string">'Open saved directory structure'</span>);
+handles.sourceFile = strcat(path, file);
+
+<span class="comment">% Update text field in GUI</span>
+set(findobj(<span class="string">'Tag'</span>, <span class="string">'sourceFile'</span>),<span class="string">'String'</span>, handles.sourceFile);
+
+<span class="comment">% Read data from file</span>
+<span class="keyword">try</span>
+    handles.fileContent = readtable(handles.sourceFile);
+<span class="keyword">catch</span> ME
+    msgbox(getReport(ME, <span class="string">'extended'</span>, <span class="string">'hyperlinks'</span>, <span class="string">'off'</span>));
+    <span class="comment">% closereq;</span>
+<span class="keyword">end</span>
+
+<span class="comment">% Count and display total number of folders and files</span>
+dID = handles.fileContent.isdir == true;
+fID = handles.fileContent.isdir == false;
+dirCount = sum(dID);
+fileCount = sum(fID);
+
+set(findobj(<span class="string">'Tag'</span>, <span class="string">'dirCountFile'</span>),<span class="string">'String'</span>, dirCount);
+set(findobj(<span class="string">'Tag'</span>, <span class="string">'fileCountFile'</span>),<span class="string">'String'</span>, fileCount);
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+</pre><h2>Checks if same content on local directory and on file<a name="19"></a></h2><p>--- Executes on button press in comparePB.</p><pre class="codeinput"><span class="keyword">function</span> comparePB_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to comparePB (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Message box</span>
+mb = msgbox(<span class="string">'Comparing directories. Please wait...'</span>);
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+
+<span class="comment">% Table column order: 'name' 'date' 'bytes' 'isdir' 'datenum' 'source'</span>
+<span class="comment">% Add a 'source' column</span>
+source_tmp = repmat({<span class="string">'file'</span>}, size(handles.fileContent, 1), 1);
+handles.fileContent.source = source_tmp;
+source_tmp = repmat({<span class="string">'folder'</span>}, size(handles.dirContent, 1), 1);
+handles.dirContent.source = source_tmp;
+
+<span class="comment">% Temp for common files and folders</span>
+tF = handles.fileContent;
+tD = handles.dirContent;
+
+<span class="comment">% TODO: It seems that 'second' is returning mismatch for identical seconds</span>
+<span class="comment">% Round (floor) 'datenum' down to nearest second, minute, hour, or day</span>
+<span class="comment">% Change 'name' to lowercase</span>
+<span class="keyword">for</span> i = 1:size(tF, 1)
+    tF{i,5} = datenum_floor(tF{i,5}, handles.timeParam);
+    tF{i,1} = lower(tF{i,1});
+<span class="keyword">end</span>
+<span class="keyword">for</span> i = 1:size(tD, 1)
+    tD{i,5} = datenum_floor(tD{i,5}, handles.timeParam);
+    tD{i,1} = lower(tD{i,1});
+<span class="keyword">end</span>
+
+<span class="comment">% Compare by 'name' (lowercase), i.e. files/folders unique to either side</span>
+[ a,   iFU]     = setdiff(tF(:,1), tD(   :,1));
+[ b,   iDU]     = setdiff(tD( :,1), tF(  :,1));
+
+<span class="comment">% Get unique files and folders</span>
+handles.diffFileN = handles.fileContent(iFU, :);
+handles.diffDirN =  handles.dirContent(iDU, :);
+
+<span class="comment">% Delete all unique files and folders from temp to get common ones</span>
+tF(iFU, :) = [];
+tD(iDU, :) = [];
+
+<span class="comment">% Compare by 'name' (lowercase) 'bytes' and 'datenum'</span>
+[ c,   iFC]     = setdiff(tF(:,[1 3 5]), tD(   :,[1 3 5]));
+[ d,   iDC]     = setdiff(tD( :,[1 3 5]), tF(  :,[1 3 5]));
+
+<span class="comment">% Get only common files with mismatching 'datenum' and/or 'bytes'</span>
+tF = tF(iFC, :);
+tD = tD(iDC, :);
+
+<span class="comment">% Exclude common folders, since only common files are of interest</span>
+rows = tF.isdir == true | tF.isdir == <span class="string">'1'</span>;
+tF(rows, :) = [];
+rows = tD.isdir == true | tD.isdir == <span class="string">'1'</span>;
+tD(rows, :) = [];
+
+<span class="comment">% Get common mismatching files</span>
+handles.diffFileC = tF;
+handles.diffDirC =  tD;
+
+<span class="comment">% Merge unique files/folders</span>
+handles.diffTotN = [handles.diffDirN; handles.diffFileN];
+<span class="comment">% Merge mismatching common files</span>
+handles.diffTotC = [handles.diffDirC; handles.diffFileC];
+
+<span class="comment">% Sort by 'name'</span>
+<span class="comment">% NB. Case sensitive!</span>
+handles.diffTotC = sortrows(handles.diffTotC,{<span class="string">'name'</span>}, {<span class="string">'ascend'</span>});
+
+<span class="comment">% Close message box</span>
+close(mb);
+
+<span class="keyword">if</span> isempty(handles.diffTotN) &amp;&amp; isempty(handles.diffTotC)
+    set(findobj(<span class="string">'Tag'</span>, <span class="string">'diffCount'</span>),<span class="string">'String'</span>, <span class="string">'0'</span>);
+    msgbox(<span class="string">'File and folder content are identical'</span>);
+<span class="keyword">else</span>
+    <span class="comment">% Count and display total number of differences in folders and files</span>
+    diffCount = size(handles.diffTotN, 1) + size(handles.diffTotC, 1);
+    set(findobj(<span class="string">'Tag'</span>, <span class="string">'diffCount'</span>),<span class="string">'String'</span>, diffCount);
+<span class="keyword">end</span>
+
+<span class="comment">% Enable 'saveDiffPB'</span>
+set(handles.saveDiffPB, <span class="string">'enable'</span>,<span class="string">'on'</span>);
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+</pre><h2>Saves the difference<a name="22"></a></h2><p>--- Executes on button press in saveDiffPB.</p><pre class="codeinput"><span class="keyword">function</span> saveDiffPB_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to saveDiffPB (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Save to Excel file</span>
+[file, path] = uiputfile(<span class="string">'diffFile.xlsx'</span>, <span class="string">'Save directory difference'</span>);
+targetFile = strcat(path, file);
+
+<span class="comment">% Check if file already is open.</span>
+<span class="comment">% doc = {['File:', handles.sourceFile, ' Folder:', handles.rootFolder]};</span>
+<span class="comment">% [status msg] = xlswrite(targetFile, doc);</span>
+<span class="comment">% if status == 0</span>
+<span class="keyword">if</span> xls_check_if_open(targetFile)
+    msgbox(<span class="string">'The file is already open. Close it and try again'</span>);
+<span class="keyword">else</span>
+    <span class="keyword">try</span>
+        <span class="comment">% Erase all sheets</span>
+        xls_delete_all_sheets(targetFile);
+        <span class="comment">% Message box</span>
+        mb = msgbox(<span class="string">'Saving file. Please wait...'</span>);
+        <span class="comment">% Unique files/folders on folder</span>
+        <span class="keyword">if</span> ~isempty(handles.diffDirN)
+            writetable(handles.diffDirN, targetFile, <span class="string">'Sheet'</span>, <span class="string">'Only on folder'</span>);
+        <span class="keyword">end</span>
+        <span class="comment">% Unique files/folders on file</span>
+        <span class="keyword">if</span> ~isempty(handles.diffFileN)
+            writetable(handles.diffFileN, targetFile, <span class="string">'Sheet'</span>, <span class="string">'Only on file'</span>);
+        <span class="keyword">end</span>
+        <span class="comment">% Common files with mismatching 'datenum' and/or 'bytes'</span>
+        <span class="keyword">if</span> ~isempty(handles.diffTotC)
+            writetable(handles.diffTotC, targetFile, <span class="string">'Sheet'</span>, <span class="string">'Mismatch'</span>);
+        <span class="keyword">end</span>
+
+        <span class="comment">% Close message box</span>
+        close(mb);
+
+    <span class="keyword">catch</span> ME
+        <span class="comment">%msgbox(getReport(ME, 'extended', 'hyperlinks', 'off'));</span>
+        <span class="comment">%closereq;</span>
+    <span class="keyword">end</span>
+    msgbox(<span class="string">'File has been saved successfully'</span>);
+<span class="keyword">end</span>
+</pre><h2>Updates the time parameter (day, hour, minute, second)<a name="25"></a></h2><p>--- Executes when selected object is changed in datetimeRBG.</p><pre class="codeinput"><span class="keyword">function</span> datetimeRBG_SelectionChangedFcn(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to the selected object in datetimeRBG</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+handles.timeParam = get(eventdata.NewValue, <span class="string">'String'</span>);
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% All rights reserved
+%
+% Arbets- och miljömedicin, Lund, Sweden
+%
+% Contact:
+% Henrik Enquist
+% henrik.enquist@skane.se
+% +46 (0)46 176936
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Main
+function varargout = CompDir(varargin)
+% COMPDIR MATLAB code for CompDir.fig
+%      COMPDIR, by itself, creates a new COMPDIR or raises the existing
+%      singleton*.
+%
+%      H = COMPDIR returns the handle to a new COMPDIR or the handle to
+%      the existing singleton*.
+%
+%      COMPDIR('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in COMPDIR.M with the given input arguments.
+%
+%      COMPDIR('Property','Value',...) creates a new COMPDIR or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before CompDir_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to CompDir_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help CompDir
+
+% Last Modified by GUIDE v2.5 04-Sep-2015 10:35:20
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @CompDir_OpeningFcn, ...
+                   'gui_OutputFcn',  @CompDir_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+%% REPLACE_WITH_DASH_DASH- Executes just before CompDir is made visible.
+function CompDir_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to CompDir (see VARARGIN)
+
+% Choose default command line output for CompDir
+handles.output = hObject;
+
+% Directory information on local disk
+handles.rootFolder = '';
+handles.dirContent = [];
+
+% Directory information on file
+handles.sourceFile = '';
+handles.fileContent = [];
+handles.fileContent.isdir = '';
+
+% Information on differences
+handles.diffFileN = [];      % Unique files/folders
+handles.diffDirN = [];
+handles.diffTotN = [];
+handles.diffFileC = [];      % Common files/folders, mismatching date/size
+handles.diffDirC = [];
+handles.diffTotC = [];
+
+% Date/time comparison level radio button group
+handles.timeParam = 'Minute';
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes CompDir wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+%% REPLACE_WITH_DASH_DASH- Outputs from this function are returned to the command line.
+function varargout = CompDir_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+%% Selects local directory
+% REPLACE_WITH_DASH_DASH- Executes on button press in selectFolderPB.
+function selectFolderPB_Callback(hObject, eventdata, handles)
+% hObject    handle to selectFolderPB (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Select root folder
+handles.rootFolder = uigetdir;
+% Update file name text field
+set(findobj('Tag', 'folderName'),'String', handles.rootFolder);
+
+% Message box
+mb = msgbox('Opening directory. Please wait...');
+
+% Retrieve the content of folder and subfolders as struct
+% Exclude absolute path text from results
+handles.dirContent = rdir([handles.rootFolder,'\**\*'], '', true);
+
+% Close message box
+close(mb);
+
+% Count and display total number of folders and files
+isDir = [handles.dirContent.isdir];
+dirNames = {handles.dirContent(isDir).name};
+fileNames = {handles.dirContent(~isDir).name};
+
+dirCount = size(dirNames, 2);
+fileCount = size(fileNames, 2);
+
+set(findobj('Tag', 'dirCountDir'),'String', dirCount);
+set(findobj('Tag', 'fileCountDir'),'String', fileCount);
+
+% Convert struct to table
+handles.dirContent = struct2table(handles.dirContent);
+
+% Enable 'saveContentPB'
+set(handles.saveContentPB, 'enable','on')
+
+% Update handles structure
+guidata(hObject, handles);
+
+%% Save directory content on .csv file
+% REPLACE_WITH_DASH_DASH- Executes on button press in saveContentPB.
+function saveContentPB_Callback(hObject, eventdata, handles)
+% hObject    handle to saveContentPB (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+[file, path] = uiputfile('directoryContent.csv', 'Save directory structure');
+targetFile = strcat(path, file);
+set(findobj('Tag', 'targetFile'),'String', targetFile);
+% try
+%     temp_table = struct2table(handles.dirContent);
+% catch ME
+%     msgbox(getReport(ME, 'extended', 'hyperlinks', 'off'));
+%     % closereq;
+% end
+try
+    writetable(handles.dirContent, targetFile);
+    msgbox('File with directory content has been saved');
+catch ME
+    msgbox(getReport(ME, 'extended', 'hyperlinks', 'off'));
+    % closereq;
+end
+
+%% Opens source file
+% REPLACE_WITH_DASH_DASH- Executes on button press in sourceFilePB.
+function sourceFilePB_Callback(hObject, eventdata, handles)
+% hObject    handle to sourceFilePB (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get file from dialog box
+[file, path] = uigetfile('*.csv','Open saved directory structure');
+handles.sourceFile = strcat(path, file);
+
+% Update text field in GUI
+set(findobj('Tag', 'sourceFile'),'String', handles.sourceFile);
+
+% Read data from file
+try
+    handles.fileContent = readtable(handles.sourceFile);
+catch ME
+    msgbox(getReport(ME, 'extended', 'hyperlinks', 'off'));
+    % closereq;
+end
+
+% Count and display total number of folders and files
+dID = handles.fileContent.isdir == true;
+fID = handles.fileContent.isdir == false;
+dirCount = sum(dID);
+fileCount = sum(fID);
+
+set(findobj('Tag', 'dirCountFile'),'String', dirCount);
+set(findobj('Tag', 'fileCountFile'),'String', fileCount);
+
+% Update handles structure
+guidata(hObject, handles);
+
+%% Checks if same content on local directory and on file
+% REPLACE_WITH_DASH_DASH- Executes on button press in comparePB.
+function comparePB_Callback(hObject, eventdata, handles)
+% hObject    handle to comparePB (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Message box
+mb = msgbox('Comparing directories. Please wait...');
+
+% Update handles structure
+guidata(hObject, handles);
+
+% Table column order: 'name' 'date' 'bytes' 'isdir' 'datenum' 'source'
+% Add a 'source' column
+source_tmp = repmat({'file'}, size(handles.fileContent, 1), 1);
+handles.fileContent.source = source_tmp;
+source_tmp = repmat({'folder'}, size(handles.dirContent, 1), 1);
+handles.dirContent.source = source_tmp;
+
+% Temp for common files and folders
+tF = handles.fileContent;
+tD = handles.dirContent;
+
+% TODO: It seems that 'second' is returning mismatch for identical seconds
+% Round (floor) 'datenum' down to nearest second, minute, hour, or day
+% Change 'name' to lowercase
+for i = 1:size(tF, 1)
+    tF{i,5} = datenum_floor(tF{i,5}, handles.timeParam);
+    tF{i,1} = lower(tF{i,1});
+end
+for i = 1:size(tD, 1)
+    tD{i,5} = datenum_floor(tD{i,5}, handles.timeParam);
+    tD{i,1} = lower(tD{i,1});
+end
+
+% Compare by 'name' (lowercase), i.e. files/folders unique to either side
+[ a,   iFU]     = setdiff(tF(:,1), tD(   :,1));
+[ b,   iDU]     = setdiff(tD( :,1), tF(  :,1));
+
+% Get unique files and folders
+handles.diffFileN = handles.fileContent(iFU, :);
+handles.diffDirN =  handles.dirContent(iDU, :);
+
+% Delete all unique files and folders from temp to get common ones
+tF(iFU, :) = [];
+tD(iDU, :) = [];
+
+% Compare by 'name' (lowercase) 'bytes' and 'datenum'
+[ c,   iFC]     = setdiff(tF(:,[1 3 5]), tD(   :,[1 3 5]));
+[ d,   iDC]     = setdiff(tD( :,[1 3 5]), tF(  :,[1 3 5]));
+
+% Get only common files with mismatching 'datenum' and/or 'bytes'
+tF = tF(iFC, :);
+tD = tD(iDC, :);
+
+% Exclude common folders, since only common files are of interest
+rows = tF.isdir == true | tF.isdir == '1';
+tF(rows, :) = [];
+rows = tD.isdir == true | tD.isdir == '1';
+tD(rows, :) = [];
+
+% Get common mismatching files
+handles.diffFileC = tF;
+handles.diffDirC =  tD;
+
+% Merge unique files/folders
+handles.diffTotN = [handles.diffDirN; handles.diffFileN];
+% Merge mismatching common files
+handles.diffTotC = [handles.diffDirC; handles.diffFileC];
+
+% Sort by 'name'
+% NB. Case sensitive!
+handles.diffTotC = sortrows(handles.diffTotC,{'name'}, {'ascend'});
+
+% Close message box
+close(mb);
+
+if isempty(handles.diffTotN) && isempty(handles.diffTotC)
+    set(findobj('Tag', 'diffCount'),'String', '0');
+    msgbox('File and folder content are identical'); 
+else
+    % Count and display total number of differences in folders and files
+    diffCount = size(handles.diffTotN, 1) + size(handles.diffTotC, 1);
+    set(findobj('Tag', 'diffCount'),'String', diffCount);
+end
+
+% Enable 'saveDiffPB'
+set(handles.saveDiffPB, 'enable','on');
+
+% Update handles structure
+guidata(hObject, handles);
+
+%% Saves the difference
+% REPLACE_WITH_DASH_DASH- Executes on button press in saveDiffPB.
+function saveDiffPB_Callback(hObject, eventdata, handles)
+% hObject    handle to saveDiffPB (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Save to Excel file
+[file, path] = uiputfile('diffFile.xlsx', 'Save directory difference');
+targetFile = strcat(path, file);
+
+% Check if file already is open.
+% doc = {['File:', handles.sourceFile, ' Folder:', handles.rootFolder]}; 
+% [status msg] = xlswrite(targetFile, doc);
+% if status == 0
+if xls_check_if_open(targetFile)
+    msgbox('The file is already open. Close it and try again');
+else
+    try
+        % Erase all sheets
+        xls_delete_all_sheets(targetFile); 
+        % Message box
+        mb = msgbox('Saving file. Please wait...');
+        % Unique files/folders on folder
+        if ~isempty(handles.diffDirN)
+            writetable(handles.diffDirN, targetFile, 'Sheet', 'Only on folder');
+        end
+        % Unique files/folders on file
+        if ~isempty(handles.diffFileN)
+            writetable(handles.diffFileN, targetFile, 'Sheet', 'Only on file');
+        end
+        % Common files with mismatching 'datenum' and/or 'bytes'
+        if ~isempty(handles.diffTotC)
+            writetable(handles.diffTotC, targetFile, 'Sheet', 'Mismatch');
+        end
+        
+        % Close message box
+        close(mb);
+        
+    catch ME
+        %msgbox(getReport(ME, 'extended', 'hyperlinks', 'off'));
+        %closereq;
+    end
+    msgbox('File has been saved successfully');
+end
+
+%% Updates the time parameter (day, hour, minute, second)
+% REPLACE_WITH_DASH_DASH- Executes when selected object is changed in datetimeRBG.
+function datetimeRBG_SelectionChangedFcn(hObject, eventdata, handles)
+% hObject    handle to the selected object in datetimeRBG 
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+handles.timeParam = get(eventdata.NewValue, 'String');
+
+% Update handles structure
+guidata(hObject, handles);
+
+##### SOURCE END #####
+--></body></html>

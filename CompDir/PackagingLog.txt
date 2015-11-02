@@ -1,0 +1,20 @@
+mcc -C -o CompDir -W WinMain:CompDir -T link:exe -d \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing -v \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir.m -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir.fig -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\datenum_floor.m -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\rdir.m -a \\RSFS081\Hem3$\186563\MATLAB\sandbox\rdir.m -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\units.m 
+Compiler version: 6.1 (R2015b)
+
+Dependency analysis by REQUIREMENTS.
+
+[Warning: Adding path "\\RSFS081\Hem3$\186563\MATLAB\CompDir" to Compiler path
+instance.] 
+[] 
+Parsing file "\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir.m"
+	(Referenced from: "Compiler Command Line").
+Deleting 0 temporary MEX authorization files.
+Generating file "\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\readme.txt".
+Packaging...
+Adding custom icon C:\Program Files\MATLAB\R2015b\toolbox\compiler\Resources\default_icon.ico to \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\CompDir.exe.
+Attempting to embed the CTF archive into the application \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\CompDir.exe.
+Finished embedding CTF archive. Deleting the external CTF archive.
+Creating the bundle...
+Web based installer created at \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_redistribution\MyAppInstaller_web.exe.
+Packaging complete.
+Elapsed packaging time was: 2 minutes and 0 seconds.
