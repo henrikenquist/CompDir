@@ -1,8 +1,13 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="2017714374" file="\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir.prj" location="\\RSFS081\Hem3$\186563\MATLAB\CompDir" name="CompDir" preferred-package-location="\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="3574533681" file="\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir.prj" location="\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir" name="CompDir" preferred-package-location="\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>CompDir</param.appname>
-    <param.icon />
-    <param.icons />
+    <param.icon>${PROJECT_ROOT}\CompDir_resources\icon.ico</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\CompDir_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\CompDir_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\CompDir_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\CompDir_resources\icon_16.png</file>
+    </param.icons>
     <param.version>1.2</param.version>
     <param.authnamewatermark>Henrik Enquist</param.authnamewatermark>
     <param.email>henrik.enquist@skane.se</param.email>
@@ -15,9 +20,8 @@
     <param.guid />
     <param.installpath.string>\AMM\CompDir\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
-    <param.logo>\\RSFS081\Hem3$\186563\My Pictures\aom_text.jpg</param.logo>
-    <param.install.notes>All rights reserved
-AMM 2015</param.install.notes>
+    <param.logo />
+    <param.install.notes />
     <param.target.install.notes />
     <param.intermediate>${PROJECT_ROOT}\CompDir\for_testing</param.intermediate>
     <param.files.only>${PROJECT_ROOT}\CompDir\for_redistribution_files_only</param.files.only>
@@ -42,13 +46,12 @@ AMM 2015</param.install.notes>
     <param.create.log>false</param.create.log>
     <param.log.file />
     <unset>
-      <param.icon />
-      <param.icons />
       <param.authnamewatermark />
       <param.email />
       <param.company />
       <param.guid />
       <param.installpath.combo />
+      <param.logo />
       <param.target.install.notes />
       <param.intermediate />
       <param.files.only />
@@ -72,11 +75,11 @@ AMM 2015</param.install.notes>
       <file>${PROJECT_ROOT}\CompDir.m</file>
     </fileset.main>
     <fileset.resources>
+      <file>\\RSFS081\Hem3$\186563\MATLAB\sandbox\rdir.m</file>
       <file>${PROJECT_ROOT}\CompDir.fig</file>
       <file>${PROJECT_ROOT}\datenum_floor.m</file>
       <file>${PROJECT_ROOT}\rdir.m</file>
       <file>${PROJECT_ROOT}\units.m</file>
-      <file>\\RSFS081\Hem3$\186563\MATLAB\sandbox\rdir.m</file>
     </fileset.resources>
     <fileset.package />
     <fileset.depfun>
@@ -84,9 +87,9 @@ AMM 2015</param.install.notes>
       <file>${PROJECT_ROOT}\xls_delete_all_sheets.m</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\CompDir\for_testing" name="CompDir.exe" optional="false">\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\CompDir.exe</file>
-      <file location="${PROJECT_ROOT}\CompDir\for_testing" name="readme.txt" optional="true">\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\readme.txt</file>
-      <file location="${PROJECT_ROOT}\CompDir\for_testing" name="splash.png" optional="false">\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\CompDir\for_testing" name="splash.png" optional="false">\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\CompDir\for_testing" name="CompDir.exe" optional="false">\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_testing\CompDir.exe</file>
+      <file location="${PROJECT_ROOT}\CompDir\for_testing" name="readme.txt" optional="true">\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_testing\readme.txt</file>
     </build-deliverables>
     <workflow />
     <matlab>

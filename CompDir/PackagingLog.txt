@@ -1,20 +1,98 @@
-mcc -C -o CompDir -W WinMain:CompDir -T link:exe -d \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing -v \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir.m -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir.fig -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\datenum_floor.m -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\rdir.m -a \\RSFS081\Hem3$\186563\MATLAB\sandbox\rdir.m -a \\RSFS081\Hem3$\186563\MATLAB\CompDir\units.m 
+mcc -C -o CompDir -W WinMain:CompDir -T link:exe -d \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_testing -v \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir.m -a \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir.fig -a \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\datenum_floor.m -a \\RSFS081\Hem3$\186563\MATLAB\sandbox\rdir.m -a \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\rdir.m -a \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\units.m 
 Compiler version: 6.1 (R2015b)
 
 Dependency analysis by REQUIREMENTS.
 
-[Warning: Adding path "\\RSFS081\Hem3$\186563\MATLAB\CompDir" to Compiler path
-instance.] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\hooks] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\info] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\logs] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\logs\refs] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\logs\refs\heads] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\logs\refs\remotes] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\logs\refs\remotes\origin] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\06] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\21] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\30] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\3b] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\48] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\4a] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\58] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\5d] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\5e] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\69] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\80] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\96] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\a1] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\a7] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\aa] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\bd] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\c4] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\d4] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\e0] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\f1] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\info] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\objects\pack] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\refs] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\refs\heads] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\refs\remotes] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\refs\remotes\origin] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\.git\refs\tags] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\2013] 
+[Warning: Name is nonexistent or not a directory:
+\\RSFS081\Hem3$\186563\Skrivbord\GitHub\SMP_to_AMM\Code from GAH] 
+[Warning: Adding path "\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir" to
+Compiler path instance.] 
 [] 
-Parsing file "\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir.m"
+Parsing file "\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir.m"
 	(Referenced from: "Compiler Command Line").
 Deleting 0 temporary MEX authorization files.
-Generating file "\\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\readme.txt".
+Generating file "\\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_testing\readme.txt".
 Packaging...
-Adding custom icon C:\Program Files\MATLAB\R2015b\toolbox\compiler\Resources\default_icon.ico to \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\CompDir.exe.
-Attempting to embed the CTF archive into the application \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_testing\CompDir.exe.
+Adding custom icon \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir_resources\icon.ico to \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_testing\CompDir.exe.
+Attempting to embed the CTF archive into the application \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_testing\CompDir.exe.
 Finished embedding CTF archive. Deleting the external CTF archive.
 Creating the bundle...
-Web based installer created at \\RSFS081\Hem3$\186563\MATLAB\CompDir\CompDir\for_redistribution\MyAppInstaller_web.exe.
+Web based installer created at \\RSFS081\Hem3$\186563\Skrivbord\GitHub\CompDir\CompDir\for_redistribution\MyAppInstaller_web.exe.
 Packaging complete.
-Elapsed packaging time was: 2 minutes and 0 seconds.
+Elapsed packaging time was: 12 minutes and 12 seconds.
