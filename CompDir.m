@@ -1,14 +1,5 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% All rights reserved
-%
-% Arbets- och miljömedicin, Lund, Sweden
-%
-% Contact:
-% Henrik Enquist
-% henrik.enquist@skane.se
-% +46 (0)46 176936
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save directory structure and compare with other directory structure by date/time
+%% CompDir
 
 %% Main
 function varargout = CompDir(varargin)
@@ -354,3 +345,10 @@ handles.timeParam = get(eventdata.NewValue, 'String');
 
 % Update handles structure
 guidata(hObject, handles);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created by:
+% Henrik Enquist
+% henrik.enquist@skane.se
+% +46 (0)46 176936
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

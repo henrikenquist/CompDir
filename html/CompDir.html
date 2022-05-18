@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>CompDir</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-09-30"><meta name="DC.source" content="CompDir.m"><style type="text/css">
+      --><title>CompDir</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-03-12"><meta name="DC.source" content="CompDir.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,18 +66,8 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Main</a></li><li><a href="#4">--- Executes just before CompDir is made visible.</a></li><li><a href="#7">--- Outputs from this function are returned to the command line.</a></li><li><a href="#10">Selects local directory</a></li><li><a href="#13">Save directory content on .csv file</a></li><li><a href="#16">Opens source file</a></li><li><a href="#19">Checks if same content on local directory and on file</a></li><li><a href="#22">Saves the difference</a></li><li><a href="#25">Updates the time parameter (day, hour, minute, second)</a></li></ul></div><pre class="codeinput"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="comment">%</span>
-<span class="comment">% All rights reserved</span>
-<span class="comment">%</span>
-<span class="comment">% Arbets- och milj&ouml;medicin, Lund, Sweden</span>
-<span class="comment">%</span>
-<span class="comment">% Contact:</span>
-<span class="comment">% Henrik Enquist</span>
-<span class="comment">% henrik.enquist@skane.se</span>
-<span class="comment">% +46 (0)46 176936</span>
-<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-</pre><h2>Main<a name="2"></a></h2><pre class="codeinput"><span class="keyword">function</span> varargout = CompDir(varargin)
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">CompDir</a></li><li><a href="#3">Main</a></li><li><a href="#5">--- Executes just before CompDir is made visible.</a></li><li><a href="#8">--- Outputs from this function are returned to the command line.</a></li><li><a href="#11">Selects local directory</a></li><li><a href="#14">Save directory content on .csv file</a></li><li><a href="#17">Opens source file</a></li><li><a href="#20">Checks if same content on local directory and on file</a></li><li><a href="#23">Saves the difference</a></li><li><a href="#26">Updates the time parameter (day, hour, minute, second)</a></li></ul></div><pre class="codeinput"><span class="comment">% Save directory structure and compare with other directory structure by date/time</span>
+</pre><h2 id="2">CompDir</h2><h2 id="3">Main</h2><pre class="codeinput"><span class="keyword">function</span> varargout = CompDir(varargin)
 </pre><pre class="codeinput"><span class="comment">% COMPDIR MATLAB code for CompDir.fig</span>
 <span class="comment">%      COMPDIR, by itself, creates a new COMPDIR or raises the existing</span>
 <span class="comment">%      singleton*.</span>
@@ -121,7 +111,7 @@ gui_State = struct(<span class="string">'gui_Name'</span>,       mfilename, <spa
     gui_mainfcn(gui_State, varargin{:});
 <span class="keyword">end</span>
 <span class="comment">% End initialization code - DO NOT EDIT</span>
-</pre><h2>--- Executes just before CompDir is made visible.<a name="4"></a></h2><pre class="codeinput"><span class="keyword">function</span> CompDir_OpeningFcn(hObject, eventdata, handles, varargin)
+</pre><h2 id="5">--- Executes just before CompDir is made visible.</h2><pre class="codeinput"><span class="keyword">function</span> CompDir_OpeningFcn(hObject, eventdata, handles, varargin)
 </pre><pre class="codeinput"><span class="comment">% This function has no output args, see OutputFcn.</span>
 <span class="comment">% hObject    handle to figure</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
@@ -156,7 +146,7 @@ guidata(hObject, handles);
 
 <span class="comment">% UIWAIT makes CompDir wait for user response (see UIRESUME)</span>
 <span class="comment">% uiwait(handles.figure1);</span>
-</pre><img vspace="5" hspace="5" src="CompDir_01.png" style="width:555px;height:780px;" alt=""> <h2>--- Outputs from this function are returned to the command line.<a name="7"></a></h2><pre class="codeinput"><span class="keyword">function</span> varargout = CompDir_OutputFcn(hObject, eventdata, handles)
+</pre><img vspace="5" hspace="5" src="CompDir_01.png" style="width:556px;height:780px;" alt=""> <h2 id="8">--- Outputs from this function are returned to the command line.</h2><pre class="codeinput"><span class="keyword">function</span> varargout = CompDir_OutputFcn(hObject, eventdata, handles)
 </pre><pre class="codeinput"><span class="comment">% varargout  cell array for returning output args (see VARARGOUT);</span>
 <span class="comment">% hObject    handle to figure</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
@@ -164,7 +154,7 @@ guidata(hObject, handles);
 
 <span class="comment">% Get default command line output from handles structure</span>
 varargout{1} = handles.output;
-</pre><h2>Selects local directory<a name="10"></a></h2><p>--- Executes on button press in selectFolderPB.</p><pre class="codeinput"><span class="keyword">function</span> selectFolderPB_Callback(hObject, eventdata, handles)
+</pre><h2 id="11">Selects local directory</h2><p>--- Executes on button press in selectFolderPB.</p><pre class="codeinput"><span class="keyword">function</span> selectFolderPB_Callback(hObject, eventdata, handles)
 </pre><pre class="codeinput"><span class="comment">% hObject    handle to selectFolderPB (see GCBO)</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
 <span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
@@ -203,7 +193,7 @@ set(handles.saveContentPB, <span class="string">'enable'</span>,<span class="str
 
 <span class="comment">% Update handles structure</span>
 guidata(hObject, handles);
-</pre><h2>Save directory content on .csv file<a name="13"></a></h2><p>--- Executes on button press in saveContentPB.</p><pre class="codeinput"><span class="keyword">function</span> saveContentPB_Callback(hObject, eventdata, handles)
+</pre><h2 id="14">Save directory content on .csv file</h2><p>--- Executes on button press in saveContentPB.</p><pre class="codeinput"><span class="keyword">function</span> saveContentPB_Callback(hObject, eventdata, handles)
 </pre><pre class="codeinput"><span class="comment">% hObject    handle to saveContentPB (see GCBO)</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
 <span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
@@ -224,7 +214,7 @@ set(findobj(<span class="string">'Tag'</span>, <span class="string">'targetFile'
     msgbox(getReport(ME, <span class="string">'extended'</span>, <span class="string">'hyperlinks'</span>, <span class="string">'off'</span>));
     <span class="comment">% closereq;</span>
 <span class="keyword">end</span>
-</pre><h2>Opens source file<a name="16"></a></h2><p>--- Executes on button press in sourceFilePB.</p><pre class="codeinput"><span class="keyword">function</span> sourceFilePB_Callback(hObject, eventdata, handles)
+</pre><h2 id="17">Opens source file</h2><p>--- Executes on button press in sourceFilePB.</p><pre class="codeinput"><span class="keyword">function</span> sourceFilePB_Callback(hObject, eventdata, handles)
 </pre><pre class="codeinput"><span class="comment">% hObject    handle to sourceFilePB (see GCBO)</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
 <span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
@@ -255,7 +245,7 @@ set(findobj(<span class="string">'Tag'</span>, <span class="string">'fileCountFi
 
 <span class="comment">% Update handles structure</span>
 guidata(hObject, handles);
-</pre><h2>Checks if same content on local directory and on file<a name="19"></a></h2><p>--- Executes on button press in comparePB.</p><pre class="codeinput"><span class="keyword">function</span> comparePB_Callback(hObject, eventdata, handles)
+</pre><h2 id="20">Checks if same content on local directory and on file</h2><p>--- Executes on button press in comparePB.</p><pre class="codeinput"><span class="keyword">function</span> comparePB_Callback(hObject, eventdata, handles)
 </pre><pre class="codeinput"><span class="comment">% hObject    handle to comparePB (see GCBO)</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
 <span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
@@ -345,7 +335,7 @@ set(handles.saveDiffPB, <span class="string">'enable'</span>,<span class="string
 
 <span class="comment">% Update handles structure</span>
 guidata(hObject, handles);
-</pre><h2>Saves the difference<a name="22"></a></h2><p>--- Executes on button press in saveDiffPB.</p><pre class="codeinput"><span class="keyword">function</span> saveDiffPB_Callback(hObject, eventdata, handles)
+</pre><h2 id="23">Saves the difference</h2><p>--- Executes on button press in saveDiffPB.</p><pre class="codeinput"><span class="keyword">function</span> saveDiffPB_Callback(hObject, eventdata, handles)
 </pre><pre class="codeinput"><span class="comment">% hObject    handle to saveDiffPB (see GCBO)</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
 <span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
@@ -388,7 +378,7 @@ targetFile = strcat(path, file);
     <span class="keyword">end</span>
     msgbox(<span class="string">'File has been saved successfully'</span>);
 <span class="keyword">end</span>
-</pre><h2>Updates the time parameter (day, hour, minute, second)<a name="25"></a></h2><p>--- Executes when selected object is changed in datetimeRBG.</p><pre class="codeinput"><span class="keyword">function</span> datetimeRBG_SelectionChangedFcn(hObject, eventdata, handles)
+</pre><h2 id="26">Updates the time parameter (day, hour, minute, second)</h2><p>--- Executes when selected object is changed in datetimeRBG.</p><pre class="codeinput"><span class="keyword">function</span> datetimeRBG_SelectionChangedFcn(hObject, eventdata, handles)
 <span class="comment">% hObject    handle to the selected object in datetimeRBG</span>
 <span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
 <span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
@@ -397,19 +387,17 @@ handles.timeParam = get(eventdata.NewValue, <span class="string">'String'</span>
 
 <span class="comment">% Update handles structure</span>
 guidata(hObject, handles);
-</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">% Created by:</span>
+<span class="comment">% Henrik Enquist</span>
+<span class="comment">% henrik.enquist@skane.se</span>
+<span class="comment">% +46 (0)46 176936</span>
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% All rights reserved
-%
-% Arbets- och miljömedicin, Lund, Sweden
-%
-% Contact:
-% Henrik Enquist
-% henrik.enquist@skane.se
-% +46 (0)46 176936
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save directory structure and compare with other directory structure by date/time
+%% CompDir
 
 %% Main
 function varargout = CompDir(varargin)
@@ -756,5 +744,11 @@ handles.timeParam = get(eventdata.NewValue, 'String');
 % Update handles structure
 guidata(hObject, handles);
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created by:
+% Henrik Enquist
+% henrik.enquist@skane.se
+% +46 (0)46 176936
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ##### SOURCE END #####
 --></body></html>
